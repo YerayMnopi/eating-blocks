@@ -1,12 +1,12 @@
-import { useSession } from 'vinxi/http'
-import { User } from './repositories/users-repository'
+import { useSession } from "vinxi/http";
+import { User } from "./repositories/users-repository";
 
 type SessionUser = {
-  user: User
-}
+  user: User;
+};
 
 export function useAppSession() {
   return useSession<SessionUser>({
-    password: 'ChangeThisBeforeShippingToProdOrYouWillBeFired',
-  })
+    password: "ChangeThisBeforeShippingToProdOrYouWillBeFired",
+  });
 }

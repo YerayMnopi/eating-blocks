@@ -10,128 +10,128 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as RegisterImport } from './routes/register'
-import { Route as AuthedImport } from './routes/_authed'
-import { Route as IndexImport } from './routes/index'
-import { Route as AuthedPlannerImport } from './routes/_authed/planner'
+import { Route as rootRoute } from "./routes/__root";
+import { Route as RegisterImport } from "./routes/register";
+import { Route as AuthedImport } from "./routes/_authed";
+import { Route as IndexImport } from "./routes/index";
+import { Route as AuthedPlannerImport } from "./routes/_authed/planner";
 
 // Create/Update Routes
 
 const RegisterRoute = RegisterImport.update({
-  path: '/register',
+  path: "/register",
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 const AuthedRoute = AuthedImport.update({
-  id: '/_authed',
+  id: "/_authed",
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 const IndexRoute = IndexImport.update({
-  path: '/',
+  path: "/",
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 const AuthedPlannerRoute = AuthedPlannerImport.update({
-  path: '/planner',
+  path: "/planner",
   getParentRoute: () => AuthedRoute,
-} as any)
+} as any);
 
 // Populate the FileRoutesByPath interface
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/_authed': {
-      id: '/_authed'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof AuthedImport
-      parentRoute: typeof rootRoute
-    }
-    '/register': {
-      id: '/register'
-      path: '/register'
-      fullPath: '/register'
-      preLoaderRoute: typeof RegisterImport
-      parentRoute: typeof rootRoute
-    }
-    '/_authed/planner': {
-      id: '/_authed/planner'
-      path: '/planner'
-      fullPath: '/planner'
-      preLoaderRoute: typeof AuthedPlannerImport
-      parentRoute: typeof AuthedImport
-    }
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/_authed": {
+      id: "/_authed";
+      path: "";
+      fullPath: "";
+      preLoaderRoute: typeof AuthedImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/register": {
+      id: "/register";
+      path: "/register";
+      fullPath: "/register";
+      preLoaderRoute: typeof RegisterImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/_authed/planner": {
+      id: "/_authed/planner";
+      path: "/planner";
+      fullPath: "/planner";
+      preLoaderRoute: typeof AuthedPlannerImport;
+      parentRoute: typeof AuthedImport;
+    };
   }
 }
 
 // Create and export the route tree
 
 interface AuthedRouteChildren {
-  AuthedPlannerRoute: typeof AuthedPlannerRoute
+  AuthedPlannerRoute: typeof AuthedPlannerRoute;
 }
 
 const AuthedRouteChildren: AuthedRouteChildren = {
   AuthedPlannerRoute: AuthedPlannerRoute,
-}
+};
 
 const AuthedRouteWithChildren =
-  AuthedRoute._addFileChildren(AuthedRouteChildren)
+  AuthedRoute._addFileChildren(AuthedRouteChildren);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '': typeof AuthedRouteWithChildren
-  '/register': typeof RegisterRoute
-  '/planner': typeof AuthedPlannerRoute
+  "/": typeof IndexRoute;
+  "": typeof AuthedRouteWithChildren;
+  "/register": typeof RegisterRoute;
+  "/planner": typeof AuthedPlannerRoute;
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '': typeof AuthedRouteWithChildren
-  '/register': typeof RegisterRoute
-  '/planner': typeof AuthedPlannerRoute
+  "/": typeof IndexRoute;
+  "": typeof AuthedRouteWithChildren;
+  "/register": typeof RegisterRoute;
+  "/planner": typeof AuthedPlannerRoute;
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/_authed': typeof AuthedRouteWithChildren
-  '/register': typeof RegisterRoute
-  '/_authed/planner': typeof AuthedPlannerRoute
+  __root__: typeof rootRoute;
+  "/": typeof IndexRoute;
+  "/_authed": typeof AuthedRouteWithChildren;
+  "/register": typeof RegisterRoute;
+  "/_authed/planner": typeof AuthedPlannerRoute;
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/register' | '/planner'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/register' | '/planner'
-  id: '__root__' | '/' | '/_authed' | '/register' | '/_authed/planner'
-  fileRoutesById: FileRoutesById
+  fileRoutesByFullPath: FileRoutesByFullPath;
+  fullPaths: "/" | "" | "/register" | "/planner";
+  fileRoutesByTo: FileRoutesByTo;
+  to: "/" | "" | "/register" | "/planner";
+  id: "__root__" | "/" | "/_authed" | "/register" | "/_authed/planner";
+  fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AuthedRoute: typeof AuthedRouteWithChildren
-  RegisterRoute: typeof RegisterRoute
+  IndexRoute: typeof IndexRoute;
+  AuthedRoute: typeof AuthedRouteWithChildren;
+  RegisterRoute: typeof RegisterRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthedRoute: AuthedRouteWithChildren,
   RegisterRoute: RegisterRoute,
-}
+};
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
 /* prettier-ignore-end */
 

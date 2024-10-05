@@ -1,6 +1,6 @@
-import { pino } from 'pino';
+import { pino } from "pino";
 
 export const logger = pino({
-    name: 'eating_blocks',
-    level: 'debug',
+  name: "eating_blocks",
+  level: "debug",
 });
