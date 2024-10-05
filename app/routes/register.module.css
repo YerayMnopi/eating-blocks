@@ -1,0 +1,30 @@
+input {
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    border: .3px solid #ccc;
+    width: 100%;
+  }
+
+button {
+    padding: 1rem 4rem;
+    border-radius: 6px;
+    background-color: var(--green);
+    color: white;
+    border: 3px;
+
+    &:disabled {
+      background-color: var(--gray);
+    }
+
+    transition: background-color 0.3s;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 100%;
+}

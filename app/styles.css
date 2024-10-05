@@ -1,0 +1,57 @@
+:root {
+    --green: #4CAF50;
+    --mint: #A9DFBF;
+    --orange: #A9DFBF;
+    --beige: #F5F5DC;
+    --blue: #003366;
+    --gray: #F0F0F0;
+}	
+body {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  align-items: center;
+  justify-content: center;
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;	
+    background-color: white;
+    color: white;
+    font-weight: 600;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 6rem;
+  margin-top: 4rem;
+}
+h2 {
+  font-weight: 600;
+  font-size: 3rem;
+  margin-top: 4rem;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 3rem;
+  margin-top: 3rem;
+}
+
+li {
+    list-style: circle;
+    margin-bottom: 10px;
+}
+
+a {
+
+    text-decoration: none;
+}
