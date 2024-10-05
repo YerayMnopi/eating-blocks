@@ -27,7 +27,7 @@ class UsersRepository {
         this.collection = dbConnection.collection(this.collectionName);
     }
 
-    async findOne(filters: Partial<Record<keyof User, any>>): Promise<User | null> {
+    async findOne(filters: Partial<User>): Promise<User | null> {
         return await this.collection.findOne(filters);
     }
 

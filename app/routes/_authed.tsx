@@ -10,8 +10,7 @@ export const loginFn = createServerFn(
       payload: {
         email: string
         password: string
-      },
-      { request },
+      }
     ) => {
       // Find the user
       const user = await usersRepository.findOne({email: payload.email})

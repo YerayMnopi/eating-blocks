@@ -1,11 +1,11 @@
 import { createFileRoute, redirect, useNavigate } from '@tanstack/react-router'
-import { FormEvent, FormEventHandler, useCallback, useEffect, useState } from 'react'
+import { FormEvent, useCallback, useEffect, useState } from 'react'
 import usersRepository, { CreateUser, User } from '../repositories/users-repository'
 import classes from './register.module.css'
 import { createServerFn } from '@tanstack/start'
 import { logger } from '../logger'
 import { ObjectId } from 'mongodb'
-import { set, z } from 'zod'
+import { z } from 'zod'
 import { mailer } from '../mailer'
 import { useAppSession } from '../session'
 import bcrypt from 'bcrypt';

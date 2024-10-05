@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useRouter } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import './index.css'
 
 export const Route = createFileRoute('/')({
@@ -6,9 +6,6 @@ export const Route = createFileRoute('/')({
 })
 
 function Home() {
-  const router = useRouter()
-  const state = Route.useLoaderData()
-
   return (<>
     <section className="section">
       <div className="index__image">

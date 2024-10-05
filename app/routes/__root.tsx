@@ -60,7 +60,7 @@ function RootComponent() {
           <span className="nav__home" >cks</span>
         </div>
         <p className="subheading">
-          Let's build your body!
+          Let&apos;s build your body!
         </p>
     </RootDocument>
   )
